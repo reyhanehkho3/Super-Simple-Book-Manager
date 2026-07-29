@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book Manager</title>
+    <style>
+        body { font-family: Arial; max-width: 600px; margin: 50px auto; padding: 20px; }
+        input { padding: 8px; margin: 5px; }
+        button { padding: 8px 15px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+        ul { list-style: none; padding: 0; }
+        li { padding: 10px; margin: 5px 0; background: #f4f4f4; display: flex; justify-content: space-between; }
+        .delete { background: #ff4444; color: white; padding: 5px 10px; text-decoration: none; }
+    </style>
+</head>
+<body>
+<h1>Book Manager</h1>
+
+<!-- Add Book Form -->
+<form action="/add" method="post">
+    <input type="text" name="title" placeholder="Book Title" required>
+    <input type="text" name="author" placeholder="Author" required>
+    <button type="submit">Add Book</button>
+</form>
+
+<!-- List of Books -->
+<h2>Your Books</h2>
+<ul>
+    <li th:each="book : ${books}"> <!-- looping through books from Java-->
+        <span th:text="${book.title} + ' by ' + ${book.author}"></span> <!-- display data -->
+        <a th:href="@{/delete/{id}(id=${book.id})}" class="delete">Delete</a> <!-- dynamically created delete links -->
+    </li>
+</ul>
+
+<p th:if="${#lists.isEmpty(books)}">No books yet. Add one above!</p>
+</body>
+</html>
