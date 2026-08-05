@@ -10,7 +10,7 @@ A simple Spring Boot web application for managing a personal book collection. Us
 - **Bootstrap UI** - Professional, responsive design
 - **PostgreSQL Support** - Production-ready database option
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 bookmanager/
@@ -35,7 +35,7 @@ bookmanager/
 └── README.md                                    # This file
 ```
 
-## 📊 Database Schema
+## Database Schema
 
 ### Book Table
 ```sql
